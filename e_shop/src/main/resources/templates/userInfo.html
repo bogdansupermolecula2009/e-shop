@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Мое инфо</title>
+</head>
+<body>
+<div class="container">
+<table class="table">
+
+    <tbody>
+    <tr th:if="${user.empty}">
+        <td colspan="2"> Список пуст</td>
+    </tr>
+    <tr th:each="customer : ${user}">
+        <td><span th:text="${customer.username}"> Name </span></td>
+        <td><span th:text="${customer.yearOfBirth}"> Year Of Birth </span></td>
+        <td><span th:text="${customer.role}"> Role </span></td>
+        <td>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Изображение</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${customer.items.empty}">
+                    <td colspan="2"> Корзина пуста</td>
+                </tr>
+                <tr th:each="item : ${customer.items}">
+                    <td><span th:text="${item.name}"> Название </span></td>
+                    <td><span th:text="${item.price}"> Цена </span></td>
+                    <td><img th:src="${item.url}" style="height: 100px"> Изображение </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <form th:action="@{/shop}" th:method="GET">
+        <input type="submit" value="К товарам" />
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаление</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/deleteItem}" th:object="${item}">
+    <label for="id">Введите id удаляемого товара: </label>
+    <input type="text" th:field="*{id}" id="id"/>
+    <br/>
+    <input type="submit" value="Удалить"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление товара</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/addItem}" th:object="${item}">
+    <label for="name">Введите название: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="price">Введите цену: </label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <br/>
+    <label for="url">Введите ссылку на изображение: </label>
+    <input type="url" th:field="*{url}" id="url"/>
+    <br/>
+    <input type="submit" value="Добавить"/>
+</form>
+
+</body>
+</html>

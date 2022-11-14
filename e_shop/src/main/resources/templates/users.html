@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Все пользователи</title>
+</head>
+<body>
+<div th:each="customer : ${users}">
+    <td><span th:text="${customer.username}"> Name </span></td>
+    <td><span th:text="${customer.yearOfBirth}"> Year Of Birth </span></td>
+    <td><span th:text="${customer.role}"> Role </span></td>
+    <td>
+</div>
+</body>
+</html>

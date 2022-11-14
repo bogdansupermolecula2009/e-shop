@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<table class="table">
+    <tbody>
+    <tr th:if="${items.empty}">
+        <td colspan="2"> Список пуст</td>
+    </tr>
+    <tr th:each="item : ${items}">
+        <td><span th:text="${item.name}"> Название </span></td>
+        <td><span th:text="${item.price}"> Цена </span></td>
+        <td><span th:text="${item.url}"> Изображение </span></td>
+        <td>
+            <form th:action="@{/bucket/save}" th:method="POST">
+                <input class="form-control" name="itemId" th:value="${item.id}" style="display: none">
+                <button class="mt-4 btn btn-outline-success" type="submit">Добавить в корзину</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<body>
+<br>
+<form th:action="@{/userInfo}" th:method="GET">
+    <input type="submit" value="Моё инфо" />
+</form>
+<br>
+<form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="Выйти" />
+</form>
+<br>
+<form th:action="@{/admin}" th:method="GET">
+    <input type="submit" value="admin" />
+</form>
+</body>
+</html>
